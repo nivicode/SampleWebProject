@@ -4,7 +4,7 @@ body {
 	color: #000000;
 	background-image: url(chic.jpg);
 	background-size: 100%;
-	background-repeat: repeat-x;
+	background-repeat: repeat-y;
     background-attachment: fixed;
 }
 
@@ -15,16 +15,30 @@ h1, h2 {
 	font-size: 75px;
 }
 
-p{ 
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 1em; color: #0000FF;
+div{ 
+	font-family: 'Fauna One', Helvetica, sans-serif; font-size: 1.01em; color: #FBEFEF;
 }
 
-.sidebar>p {
-	color: #FFFF00;
+#nav a:link, #nav a:visited {
+	font-family: 'Fauna One', Helvetica, sans-serif; font-size: 1.01em; color: #FBEFEF;
+	text-decoration: none;
+	background-color: transparent;
 }
 
-#tagline {
-	color: #BBBBBB;
+#nav a:hover {
+	color: #778899;
+}
+
+div#content {
+	margin-left: 2em;
+	margin-right: 16em;
+}
+
+div#nav {
+	position: absolute;
+	top: 5em;
+	right: 20em;
+	width: 25em;
 }
 
 div#footer{
