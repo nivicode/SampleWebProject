@@ -26,3 +26,14 @@ p{
 #tagline {
 	color: #BBBBBB;
 }
+
+div#footer{
+   position:fixed;
+   bottom:0px;
+   left:0px;
+   right:0px;
+   height:40px;
+   color: #FBEFEF;
+   text-align: right;
+   font-size: 10px;
+}
