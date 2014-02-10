@@ -1,0 +1,418 @@
+<script type="text/javascript">
+<!--
+
+function updateClock ( )
+{
+  var currentTime = new Date ( );
+
+  var currentHours = currentTime.getHours ( );
+  var currentMinutes = currentTime.getMinutes ( );
+  var currentSeconds = currentTime.getSeconds ( );
+  var currentDay = currentTime.getDay ( );
+  
+  //var day = ".";
+  
+  //var utcHours = currentHours+8;
+  var utcHours;
+  
+  if(currentHours > 12)
+  {
+	currentHours = currentHours-12;
+  }
+  
+  utcHours=currentHours+8; 
+    
+  var day;
+  var tom;
+  var offMinutes;
+  var offHours;
+  
+  // Pad the minutes and seconds with leading zeros, if required
+  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+ 
+  // Convert the hours component to 12-hour format if needed
+  //currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+  // Convert an hours component of "0" to "12"
+  //currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+  
+  // Convert an hours component of "0" to "12"
+  //currentHours = ( currentHours == 24 ) ? 0 : currentHours;
+  
+  if(currentMinutes < 30)
+  {
+	offMinutes = (currentMinutes-30)+60;
+	offMinutes = ( offMinutes < 10 ? "0" : "" ) + offMinutes;
+  }
+  else
+  {
+	offMinutes = (currentMinutes-30);
+	offMinutes = ( offMinutes < 10 ? "0" : "" ) + offMinutes;
+  }
+  
+  if(currentMinutes < 30)
+  {
+	venoffHours = utcHours-5;
+  }
+  else
+  {
+    venoffHours = utcHours-4;
+  }
+  
+  switch(currentDay){
+	case 1:
+		day="Mon";
+		tom="Tue";
+		break;
+	case 2:
+		day="Tue";
+		tom="Wed";
+		break;
+	case 3:
+		day="Wed";
+		tom="Thu";
+		break;
+	case 4:
+		day="Thu";
+		tom="Fri";
+		break;
+	case 5:
+		day="Fri";
+		tom="Sat";
+		break;
+	case 6:
+		day="Sat";
+		tom="sun";
+		break;
+	case 0:
+		day="Sun";
+		tom="Mon";
+		break;
+}
+
+function convertHours(hours)
+{
+	hours = ( hours < 10 ? "0" : "" ) + hours;
+	hours = ( hours == 0 ) ? 12 : hours;
+	if(hours > 12)
+	{
+		var pmhours = hours;
+		pmhours = ( pmhours < 10 ? "0" : "" ) + pmhours;
+		//return day + " " + pmhours + ":" + currentMinutes + "  PM";
+		return pmhours + ":" + currentMinutes;
+	}
+	else
+	{
+		//return tom + " " + hours + ":" + currentMinutes + "  AM";
+		return hours + ":" + currentMinutes;
+	}
+}
+
+function convertoffHours(hours)
+{
+	hours = ( hours < 10 ? "0" : "" ) + hours;
+	hours = ( hours == 0 ) ? 12 : hours;
+	if(hours > 12)
+	{
+		var pmhours = hours;
+		pmhours = ( pmhours < 10 ? "0" : "" ) + pmhours;
+		//return day + " " + pmhours + ":" + offMinutes + "  PM";
+		return pmhours + ":" + currentMinutes;
+	}
+	else
+	{
+		//return tom + " " + hours + ":" + offMinutes + "  AM";
+		return hours + ":" + currentMinutes;
+	}
+}
+
+function convertcurrentHours(hours)
+{
+	hours = ( hours < 10 ? "0" : "" ) + hours;
+	hours = ( hours == 0 ) ? 12 : hours;
+	if(hours > 12)
+	{
+		var pmhours = hours;
+		pmhours = ( pmhours < 10 ? "0" : "" ) + pmhours;
+		//return day + " " + pmhours + ":" + currentMinutes + ":" + currentSeconds + "  PM";
+		return pmhours + ":" + currentMinutes + ":" + currentSeconds;
+	}
+	else
+	{
+		//return tom + " " + hours + ":" + currentMinutes + ":" + currentSeconds + "  AM";
+		return hours + ":" + currentMinutes;
+	}
+}
+
+  
+  // Compose the string for display
+  var localTimeString =convertcurrentHours(currentHours);
+  var hawaiiTimeString =convertHours(utcHours-10);
+  var alaskaTimeString =convertHours(utcHours-9);
+  var pacificTimeString = convertHours(utcHours-8);
+  var mountainTimeString =convertHours(utcHours-7);
+  var centralTimeString =convertHours(utcHours-6);
+  var eastTimeString =convertHours(utcHours-5);
+  var venezuelaTimeString =convertoffHours(venoffHours);
+  var halifaxTimeString =convertHours(utcHours-4);
+  var johnsTimeString =convertoffHours(venoffHours+1);
+  var rioTimeString =convertHours(utcHours-3);
+  var monteTimeString =convertHours(utcHours-2);
+  var londonTimeString =convertHours(utcHours);
+  var parisTimeString =convertHours(utcHours+1);
+  var cairoTimeString =convertHours(utcHours+2);
+  var moscowTimeString =convertHours(utcHours+3);
+  var tehranTimeString =convertoffHours(venoffHours+8);
+  var dubaiTimeString =convertHours(utcHours+4);
+  var kabulTimeString =convertoffHours(venoffHours+9);
+  var karachiTimeString =convertHours(utcHours+5);
+  var chennaiTimeString =convertoffHours(venoffHours+10);
+  var dhakaTimeString =convertHours(utcHours+6);
+  var yangonTimeString =convertoffHours(venoffHours+11);
+  var bangkokTimeString =convertHours(utcHours+7);
+  var beijingTimeString =convertHours(utcHours+8);
+  var tokyoTimeString =convertHours(utcHours+9);
+  var darwinTimeString =convertoffHours(venoffHours+14);
+  var brisbaneTimeString =convertHours(utcHours+10);
+  var adelaideTimeString =convertoffHours(venoffHours+15);
+  var sydneyTimeString =convertHours(utcHours+11);
+  var suvaTimeString =convertHours(utcHours+12);
+  var aucklandTimeString =convertHours(utcHours+13);
+  var kiritimatiTimeString =convertHours(utcHours+14);
+  
+  // Update the time display
+  document.getElementById("local_clock").firstChild.nodeValue = localTimeString;
+  document.getElementById("hawaii_clock").firstChild.nodeValue = hawaiiTimeString;
+  document.getElementById("alaska_clock").firstChild.nodeValue = alaskaTimeString;
+  document.getElementById("pacific_clock").firstChild.nodeValue = pacificTimeString;
+  document.getElementById("mountain_clock").firstChild.nodeValue = mountainTimeString;
+  document.getElementById("central_clock").firstChild.nodeValue = centralTimeString;
+  document.getElementById("east_clock").firstChild.nodeValue = eastTimeString;
+  document.getElementById("venezuela_clock").firstChild.nodeValue = venezuelaTimeString;
+  document.getElementById("halifax_clock").firstChild.nodeValue = halifaxTimeString;
+  document.getElementById("johns_clock").firstChild.nodeValue = johnsTimeString;
+  document.getElementById("rio_clock").firstChild.nodeValue = rioTimeString;
+  document.getElementById("monte_clock").firstChild.nodeValue = monteTimeString;
+  document.getElementById("london_clock").firstChild.nodeValue = londonTimeString;
+  document.getElementById("paris_clock").firstChild.nodeValue = parisTimeString;
+  document.getElementById("cairo_clock").firstChild.nodeValue = cairoTimeString;
+  document.getElementById("moscow_clock").firstChild.nodeValue = moscowTimeString;
+  document.getElementById("tehran_clock").firstChild.nodeValue = tehranTimeString;
+  document.getElementById("dubai_clock").firstChild.nodeValue = dubaiTimeString;
+  document.getElementById("kabul_clock").firstChild.nodeValue = kabulTimeString;
+  document.getElementById("karachi_clock").firstChild.nodeValue = karachiTimeString;
+  document.getElementById("chennai_clock").firstChild.nodeValue = chennaiTimeString;
+  document.getElementById("dhaka_clock").firstChild.nodeValue = dhakaTimeString;
+  document.getElementById("yangon_clock").firstChild.nodeValue = yangonTimeString;
+  document.getElementById("bangkok_clock").firstChild.nodeValue = bangkokTimeString;
+  document.getElementById("beijing_clock").firstChild.nodeValue = beijingTimeString;
+  document.getElementById("tokyo_clock").firstChild.nodeValue = tokyoTimeString;
+  document.getElementById("darwin_clock").firstChild.nodeValue = darwinTimeString;
+  document.getElementById("brisbane_clock").firstChild.nodeValue = brisbaneTimeString;
+  document.getElementById("adelaide_clock").firstChild.nodeValue = adelaideTimeString;
+  document.getElementById("sydney_clock").firstChild.nodeValue = sydneyTimeString;
+  document.getElementById("suva_clock").firstChild.nodeValue = suvaTimeString;
+  document.getElementById("auckland_clock").firstChild.nodeValue = aucklandTimeString;
+  document.getElementById("kiritimati_clock").firstChild.nodeValue = kiritimatiTimeString;
+}
+
+
+// -->
+</script>
+<html>
+
+<body onload="updateClock(); setInterval('updateClock()', 1000 )">
+<table>
+	<tr>
+		<td>Time Zone</td>
+		<td>Time</td>
+		<td>Cities</td>
+	</tr>
+	<tr>
+		<td><b>LOCAL</b></td>
+		<td><b><span id="local_clock">&nbsp;</span></b></td>
+		<td>&nbsp;</td>
+	</tr>		
+	<tr>
+		<td>UTC -10</td>
+		<td><span id="hawaii_clock">&nbsp;</span></td>
+		<td>Honolulu</td>
+	</tr>	
+	<tr>
+		<td>UTC -09</td>
+		<td><span id="alaska_clock">&nbsp;</span></td>
+		<td>Anchorage</td>
+	</tr>		
+	<tr>
+		<td>UTC -08</td>
+		<td><span id="pacific_clock">&nbsp;</span></td>
+		<td>Los Angeles, San Francisco, Seattle, Vancouver</td>
+	</tr>	
+	<tr>
+		<td>UTC -07</td>
+		<td><span id="mountain_clock">&nbsp;</span></td>
+		<td>Denver, Phoenix, Edmonton</td>
+	</tr>		
+	<tr>
+		<td>UTC -06</td>
+		<td><span id="central_clock">&nbsp;</span></td>
+		<td>New Orleans, Houston, Chicago, Minneapolis, Winnipeg, Mexico City, Guatemala, San Salvador, Tegucigalpa, Managua</td>
+	</tr>			
+	<tr>
+		<td>UTC -05</td>
+		<td><span id="east_clock">&nbsp;</span></td>
+		<td>New York, Philadelphia, Indianapolis, Atlanta, Boston, Columbus, Miami, Detroit, Washington DC, Toronto, Ottawa, Montreal, Havana, Kingston, Bogota, Lima</td>
+	</tr>	
+	<tr>
+		<td>UTC -04.5</td>
+		<td><span id="venezuela_clock">&nbsp;</span></td>
+		<td>Caracas</td>
+	</tr>		
+	<tr>
+		<td>UTC -04</td>
+		<td><span id="halifax_clock">&nbsp;</span></td>
+		<td>Halifax, San Juan, Santo Domingo, La Paz</td>
+	</tr>			
+	<tr>
+		<td>UTC -03.5</td>
+		<td><span id="johns_clock">&nbsp;</span></td>
+		<td>St. Johns</td>
+	</tr>				
+	<tr>
+		<td>UTC -03</td>
+		<td><span id="rio_clock">&nbsp;</span></td>
+		<td>Rio de Janeiro, São Paulo, Brasilia, Asuncion, Santiago, Buenos Aires</td>
+	</tr>		
+	<tr>
+		<td>UTC -02</td>
+		<td><span id="monte_clock">&nbsp;</span></td>
+		<td>Montevideo</td>
+	</tr>	
+	<tr>
+		<td>UTC </td>
+		<td><span id="london_clock">&nbsp;</span></td>
+		<td>London, Reykjavik, Lisbon, Casablanca, Dublin</td>
+	</tr>	
+	<tr>
+		<td>UTC +01</td>
+		<td><span id="paris_clock">&nbsp;</span></td>
+		<td>Paris, Zürich, Berlin, Madrid, Oslo, Amsterdam, Prague, Rome, Belgrade, Brussels, Stockholm, Copenhagen, Budapest, Vienna, Warsaw, Zagreb, Algiers, Lagos</td>
+	</tr>	
+		<tr>
+		<td>UTC +02</td>
+		<td><span id="cairo_clock">&nbsp;</span></td>
+		<td>Helsinki, Ankara, Athens, Bucharest, Tallinn, Minsk, Sofia, Kyiv, Cairo, Beirut, Jerusalem, Istanbul, Athens, Amman, Harare, Johannesburg</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +03</td>
+		<td><span id="moscow_clock">&nbsp;</span></td>
+		<td>Moscow, Addis Ababa, Nairobi, Antananarivo, Khartoum, Kuwait City, Riyadh, Aden, Baghdad</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +03.5</td>
+		<td><span id="tehran_clock">&nbsp;</span></td>
+		<td>Tehran</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +04</td>
+		<td><span id="dubai_clock">&nbsp;</span></td>
+		<td>Dubai</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +04.5</td>
+		<td><span id="kabul_clock">&nbsp;</span></td>
+		<td>Kabul</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +05</td>
+		<td><span id="karachi_clock">&nbsp;</span></td>
+		<td>Karachi, Tashkent</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +05.5</td>
+		<td><span id="chennai_clock">&nbsp;</span></td>
+		<td>Delhi, Mumbai, Kolkatta, Chennai</td>
+	</tr>		
+	</tr>	
+		<tr>
+		<td>UTC +06</td>
+		<td><span id="dhaka_clock">&nbsp;</span></td>
+		<td>Dhaka, Almaty</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +06.5</td>
+		<td><span id="yangon_clock">&nbsp;</span></td>
+		<td>Yangon</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +07</td>
+		<td><span id="bangkok_clock">&nbsp;</span></td>
+		<td>Bangkok, Jakarta, Hanoi</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +08</td>
+		<td><span id="beijing_clock">&nbsp;</span></td>
+		<td>Beijing, Shanghai, Hong Kong, Taipei, Singapore, Kuala Lumpur, Manila, Perth</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +09</td>
+		<td><span id="tokyo_clock">&nbsp;</span></td>
+		<td>Seoul, Tokyo</td>
+	</tr>
+	</tr>	
+		<tr>
+		<td>UTC +09.5</td>
+		<td><span id="darwin_clock">&nbsp;</span></td>
+		<td>Darwin</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +10</td>
+		<td><span id="brisbane_clock">&nbsp;</span></td>
+		<td>Brisbane, Vladivostok</td>
+	</tr>		
+	</tr>	
+		<tr>
+		<td>UTC +10.5</td>
+		<td><span id="adelaide_clock">&nbsp;</span></td>
+		<td>Adelaide</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +11</td>
+		<td><span id="sydney_clock">&nbsp;</span></td>
+		<td>Sydney, Canberra, Melbourne, Kamchatka, Anadyr </td>
+	</tr>
+	</tr>	
+		<tr>
+		<td>UTC +12</td>
+		<td><span id="suva_clock">&nbsp;</span></td>
+		<td>Suva</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +13</td>
+		<td><span id="auckland_clock">&nbsp;</span></td>
+		<td>Auckland</td>
+	</tr>	
+	</tr>	
+		<tr>
+		<td>UTC +14</td>
+		<td><span id="kiritimati_clock">&nbsp;</span></td>
+		<td>Kiritimati</td>
+	</tr>		
+</table>
+</body>
+</html>
+

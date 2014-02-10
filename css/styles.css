@@ -1,0 +1,28 @@
+body {
+	font: 0.9em Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background-color: #D2D7E4;
+	color: #000000;
+	background-image: url(chic.jpg);
+	background-size: 100%;
+	background-repeat: repeat-x;
+    background-attachment: fixed;
+}
+
+h1, h2 {
+	font-family: 'Fauna One', Helvetica, sans-serif;
+	color: #FBEFEF;
+	padding: 10px;
+	font-size: 75px;
+}
+
+p{ 
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 1em; color: #0000FF;
+}
+
+.sidebar>p {
+	color: #FFFF00;
+}
+
+#tagline {
+	color: #BBBBBB;
+}
