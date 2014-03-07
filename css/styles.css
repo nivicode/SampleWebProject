@@ -31,7 +31,8 @@ div{
 
 div#content {
 	margin-left: 2em;
-	margin-right: 16em;
+	margin-right: 6em;
+	width: 30em;
 }
 
 div#nav {
